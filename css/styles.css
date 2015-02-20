@@ -81,3 +81,49 @@ pre {
 	padding-bottom: 20px;
 	border-bottom: 1px solid #DDD;
 }
+.content .steps:after {
+	content: '';
+	width:0;
+	height:0;
+	display: block;
+	clear:both;
+}
+
+/*
+* Colors Patterns
+*/
+.color_step h2 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color:#353535;
+}
+.colors_patterns li {
+	float: left;
+	padding: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: solid 1px #ccc;
+	list-style: none;
+}
+.colors_patterns li:first-child {
+	margin-left: 0;
+}
+.colors_patterns li:last-child {
+	margin-right: 0;
+}
+.colors_patterns:after {
+	content: '';
+	width:0;
+	height:0;
+	display: block;
+	clear:both;
+}
+.colors_patterns li .color_box {
+	width: 88px;
+	height: 88px;
+	border: solid 1px #e1e1e1;
+}
+.colors_patterns li p {
+	padding: 5px 0 0;
+	font-weight: bold;
+}
