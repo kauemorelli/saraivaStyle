@@ -4,12 +4,36 @@
 	<meta charset="UTF-8">
 	<title>Style Guide - CSS - Saraiva.com.br</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/lib/shCore.js"></script>
 	<script type="text/javascript" src="js/lib/shBrushXml.js"></script>
 	<script type="text/javascript" src="js/lib/shBrushCss.js"></script>
 	<script type="text/javascript" src="js/lib/shBrushJScript.js"></script>
 	<script type="text/javascript">SyntaxHighlighter.all();</script>
 	<link type="text/css" rel="stylesheet" href="css/lib/shCoreDefault.css"/>
+	<script>
+		$(document).ready(function() {
+			//Função de animação de ancora
+			var scrollingPage = function () {
+				var varContent = $(this).attr('href'),
+					existContent;
+					
+				if( varContent.indexOf('#') >= 0 ) {
+					varContent = varContent.replace('#','');
+					existContent = $('.content').find('a[name="' + varContent + '"]').length;
+					
+					if( existContent != '' ) {
+						$('html, body').animate({
+							scrollTop: $('.content a[name="' + varContent + '"]').offset().top
+						}, 500);
+					}
+				}
+				
+				return false;
+			}
+			$('.menu ul').on('click', 'a', scrollingPage);
+		})
+	</script>
 </head>
 <body>
 	<div class="wrapper">
@@ -22,6 +46,7 @@
 				<li><a href="#introducao">Introdução</a></li>
 				<li><a href="#cores">Cores</a></li>
 				<li><a href="#titulos">Títulos</a></li>
+				<li><a href="">Etc</a></li>
 				<li><a href="javascript:void(0)">Etc</a></li>
 				<li><a href="javascript:void(0)">Etc</a></li>
 				<li><a href="javascript:void(0)">Etc</a></li>
