@@ -36,6 +36,11 @@ pre {
 	white-space: pre-wrap;
 }
 
+ul {
+	padding-left: 16px;
+}
+
+
 .wrapper {
 
 }
@@ -59,6 +64,8 @@ pre {
 }
 .menu ul li {
 	width: 100%;
+	list-style: none;
+	padding-left: 0;
 }
 .menu ul li a {
 	padding: 10px;

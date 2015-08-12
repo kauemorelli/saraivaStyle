@@ -4,36 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Style Guide - CSS - Saraiva.com.br</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/lib/shCore.js"></script>
-	<script type="text/javascript" src="js/lib/shBrushXml.js"></script>
-	<script type="text/javascript" src="js/lib/shBrushCss.js"></script>
-	<script type="text/javascript" src="js/lib/shBrushJScript.js"></script>
-	<script type="text/javascript">SyntaxHighlighter.all();</script>
 	<link type="text/css" rel="stylesheet" href="css/lib/shCoreDefault.css"/>
-	<script>
-		$(document).ready(function() {
-			//Função de animação de ancora
-			var scrollingPage = function () {
-				var varContent = $(this).attr('href'),
-					existContent;
-					
-				if( varContent.indexOf('#') >= 0 ) {
-					varContent = varContent.replace('#','');
-					existContent = $('.content').find('a[name="' + varContent + '"]').length;
-					
-					if( existContent != '' ) {
-						$('html, body').animate({
-							scrollTop: $('.content a[name="' + varContent + '"]').offset().top
-						}, 500);
-					}
-				}
-				
-				return false;
-			}
-			$('.menu ul').on('click', 'a', scrollingPage);
-		})
-	</script>
 </head>
 <body>
 	<div class="wrapper">
@@ -44,12 +15,10 @@
 		<div class="menu">
 			<ul>
 				<li><a href="#introducao">Introdução</a></li>
+				<li><a href="#padraoes-css">Padrões CSS</a></li>
+				<li><a href="#padraoes-js">Padrões JS</a></li>
 				<li><a href="#cores">Cores</a></li>
 				<li><a href="#titulos">Títulos</a></li>
-				<li><a href="">Etc</a></li>
-				<li><a href="javascript:void(0)">Etc</a></li>
-				<li><a href="javascript:void(0)">Etc</a></li>
-				<li><a href="javascript:void(0)">Etc</a></li>
 			</ul>
 		</div>
 
@@ -59,16 +28,97 @@
 			<div class="steps">
 				<a name="introducao"></a>
 				<h1>Indrodução</h1>
-				<p>Aqui iremos iniciar nossa documentação do style guide.</p>
+				<br />
+				<h2>Está começando do zero?</h2>
+				<p>Instalações necessárias:</p>
+				<ul>
+					<li>NodeJS</li>
+					<li>GruntJS</li>
+					<li>Compass</li>
+				</ul>
 			</div>
 			<!-- INTRODUÇÃO:fim -->
+
+			<!-- Padrões CSS -->
+			<div class="steps color_step">
+				<a name="padraoes-css"></a>
+				<h1>Padroes CSS</h1>
+				<p>Abaixo estão listados a padronização de escrita de CSS.</p>
+
+				<h2>Aspas</h2>
+				<p>Utilizar sempre aspas duplas (") no CSS.</p>
+				<pre class="brush: css;">
+					.clearfix:after { content: " "; }
+
+					input[type="button"] { ... }
+				</pre>
+
+				<h2>Cores</h2>
+				<p>Para declarar a cor hexadecimal no CSS use abreviações quando possível (em caso de repedições), assim:</p>
+				<pre class="brush: css;">
+					/* Recomendado */
+					p { color: #fff; }
+
+					/* Não Recomendado */
+					p { color: #FFFFFF; }
+					p { color: #ffffff; }
+				</pre>
+
+				<h2>Comentários</h2>
+				<p>Errado</p>
+				<pre class="brush: css;">
+					p > /*span >*/ span {color: #fff; }
+					p { color: #000; } /* Errado */
+					p { color: #000; /* Errado */ }
+				</pre>
+			</div>
+			<!-- Padrões CSS:fim -->
+
+			<!-- Padrões JS -->
+			<div class="steps color_step">
+				<a name="padraoes-js"></a>
+				<h1>Padroes JS</h1>
+				<p>Para a padronização de escrita dos JS, usamos o <i>JSHint</i>, na qual utilizamos o plugin <i>JSHint Gutter</i> no <i>Sublime text 3</i></p>
+				<p>Regras JSHint (arquivo: .jshintrc)</p>
+				<pre class="brush: js;">
+					{
+						"globals": {
+							"jQuery": true
+						},
+						"browser": true,
+						"camelcase": true,
+						"eqeqeq": true,
+						"eqnull": true,
+						"indent": 4,
+						"latedef": true,
+						"newcap": true,
+						"quotmark": "single",
+						"trailing": true,
+						"undef": true,
+						"unused": true,
+						"curly": true,
+						"evil": true,
+						"forin": true,
+						"immed": true,
+						"noarg": true,
+						"noempty": true,
+						"nonew": true,
+						"nomen": false,
+						"onevar": true,
+						"strict": true,
+						"white": true,
+						"node": true
+					}
+				</pre>
+			</div>
+			<!-- Padrões JS:fim -->
 
 			<!-- CORES -->
 			<div class="steps color_step">
 				<a name="cores"></a>
 				<h1>Cores</h1>
 				<p>Abaixo listaremos as cores padrões para toda a loja virtual da Saraiva.</p>
-				
+
 				<h2>Cores de Background</h2>
 				<ul class="colors_patterns">
 					<li>
@@ -88,7 +138,7 @@
 						<p>HEX #f4c50a</p>
 					</li>
 				</ul>
-				
+
 				<h2>Cores de Textos</h2>
 				<ul class="colors_patterns">
 					<li>
@@ -172,5 +222,38 @@
 
 		</div>
 	</div>
+
+
+	<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/lib/shCore.js"></script>
+	<script type="text/javascript" src="js/lib/shBrushXml.js"></script>
+	<script type="text/javascript" src="js/lib/shBrushCss.js"></script>
+	<script type="text/javascript" src="js/lib/shBrushJScript.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<script>
+
+		$(document).ready(function() {
+			//Função de animação de ancora
+			var scrollingPage = function () {
+				var varContent = $(this).attr('href'),
+					existContent;
+
+				if( varContent.indexOf('#') >= 0 ) {
+					varContent = varContent.replace('#','');
+					existContent = $('.content').find('a[name="' + varContent + '"]').length;
+
+					if( existContent != '' ) {
+						$('html, body').animate({
+							scrollTop: $('.content a[name="' + varContent + '"]').offset().top
+						}, 500);
+					}
+				}
+
+				return false;
+			}
+
+			$('.menu ul').on('click', 'a', scrollingPage);
+		});
+	</script>
 </body>
 </html>
